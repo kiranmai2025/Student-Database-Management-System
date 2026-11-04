@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header bg-white py-3">
+                <h5 class="card-title mb-0 fw-bold">Add New Student</h5>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST" action="{{ url_for('add_student') }}">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Roll Number</label>
+                            <input type="text" name="roll_no" class="form-control" placeholder="e.g., 23A91A0401" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="e.g., Jane Doe" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" placeholder="e.g., jane@example.com" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Phone</label>
+                            <input type="text" name="phone" class="form-control" placeholder="e.g., 9876543210" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Department</label>
+                            <select name="department" class="form-select" required>
+                                <option value="" disabled selected>Select Department</option>
+                                <option value="ECE">ECE</option>
+                                <option value="CSE">CSE</option>
+                                <option value="EEE">EEE</option>
+                                <option value="IT">IT</option>
+                                <option value="Civil">Civil</option>
+                                <option value="Mechanical">Mechanical</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Residence Type</label>
+                            <select name="residence_type" class="form-select" required>
+                                <option value="" disabled selected>Select Residence</option>
+                                <option value="Day Scholar">Day Scholar</option>
+                                <option value="Hosteler">Hosteler</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-4 d-flex justify-content-end gap-2">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-light border">Cancel</a>
+                        <button type="submit" class="btn btn-success fw-semibold px-4">Save Student</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
